@@ -1,5 +1,6 @@
 const path = require('path');
 const WebpackMd5Hash = require('webpack-md5-hash');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: './src/script.js',
@@ -15,6 +16,9 @@ module.exports = {
     }]
   },
   plugins: [
-    new WebpackMd5Hash()
+    new WebpackMd5Hash(),
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    })
   ]
 }
