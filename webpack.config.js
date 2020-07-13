@@ -7,6 +7,13 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[chunkhash].js'
   },
+  module: {
+    rules: [{
+      test: /\.js$/,
+      use: { loader: 'babel-loader' },
+      exclude: /node_modules/
+    }]
+  },
   plugins: [
     new WebpackMd5Hash()
   ]
