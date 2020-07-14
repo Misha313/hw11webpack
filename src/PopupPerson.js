@@ -1,4 +1,5 @@
-class PopupPerson extends Popup {
+import { Popup } from './Popup.js';
+export class PopupPerson extends Popup {
   constructor(popup, namePersonField, aboutPersonField, userInfo, api) {
     super(popup)
     this.namePersonField = namePersonField

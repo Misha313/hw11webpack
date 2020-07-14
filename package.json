@@ -5,7 +5,7 @@
   "main": "script.js",
   "scripts": {
     "build": "rm -rf dist && webpack --mode production",
-    "dev": "webpack-dev-server --mode development -watch"
+    "dev": "webpack-dev-server --mode development "
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@babel/cli": "^7.10.4",
     "@babel/core": "^7.10.4",
+    "@babel/plugin-syntax-class-properties": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.6.0",
@@ -37,4 +38,5 @@
     "babel-polyfill": "^6.26.0",
     "core-js": "^3.4.1"
   }
+
 }

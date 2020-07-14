@@ -1,75 +1,83 @@
-'use strict';
-
-(function () {
-  const popupNewPlace = document.querySelector('.popup-new-place');
-  const formNew = document.forms.new;
-  const formAbout = document.forms.about;
-  const placesList = document.querySelector('.places-list');
-  const popupImg = document.querySelector('.popup-image');
-
-  const popupPerson = document.querySelector('.popup-person');
-  const editProfile = document.querySelector('.user-info__button-size-s');
-
-  const addPersonData = document.querySelector('.popup__button-add-person-data');
-
-  const userInfoContainer = document.querySelector('.user-info')
-  const nameTitle = document.querySelector('.user-info__name');
-  const aboutPopup = document.querySelector('.user-info__job');
-  const openPopupNewPlace = document.querySelector('.user-info__button')
+import { initialCards } from './data.js';
+import { Api } from './Api.js';
+import { Card } from './Card.js';
+import { CardList } from './CardList.js';
+import { FormValidator } from './FormValidator.js';
+import { Popup } from './Popup.js';
+import { PopupImage } from './PopupImage.js';
+import { PopupNewPlace } from './PopupNewPlace.js';
+import { PopupPerson } from './PopupPerson.js';
+import { UserInfo } from './UserInfo.js';
 
 
-  const namePerson = formAbout.namePerson;
-  const aboutPerson = formAbout.aboutPerson;
 
-  const config = {
-    baseUrl: 'https://praktikum.tk/cohort11',
-    headers: {
-      authorization: '6e56edd5-b9e6-415a-9bc5-cf8c6bf91db3',
-      'Content-Type': 'application/json'
-    }
+
+const popupNewPlace = document.querySelector('.popup-new-place');
+const formNew = document.forms.new;
+const formAbout = document.forms.about;
+const placesList = document.querySelector('.places-list');
+const popupImg = document.querySelector('.popup-image');
+
+const popupPerson = document.querySelector('.popup-person');
+const editProfile = document.querySelector('.user-info__button-size-s');
+
+const addPersonData = document.querySelector('.popup__button-add-person-data');
+
+const userInfoContainer = document.querySelector('.user-info')
+const nameTitle = document.querySelector('.user-info__name');
+const aboutPopup = document.querySelector('.user-info__job');
+const openPopupNewPlace = document.querySelector('.user-info__button')
+
+
+const namePerson = formAbout.namePerson;
+const aboutPerson = formAbout.aboutPerson;
+
+const config = {
+  baseUrl: 'https://praktikum.tk/cohort11',
+  headers: {
+    authorization: '6e56edd5-b9e6-415a-9bc5-cf8c6bf91db3',
+    'Content-Type': 'application/json'
   }
-  const api = new Api(config);
+}
+const api = new Api(config);
 
-  const popup = new Popup(popupNewPlace);
+const popup = new Popup(popupNewPlace);
 
-  const classPopupImage = new PopupImage(popupImg);
-
-
-  const card = new Card(classPopupImage);
-
-  const cardList = new CardList(placesList, card);
-
-  const newPlacePopup = new PopupNewPlace(popupNewPlace, card, cardList);
+const classPopupImage = new PopupImage(popupImg);
 
 
-  const newFormValidator = new FormValidator(formNew);
-  const formAboutValidator = new FormValidator(formAbout);
+const card = new Card(classPopupImage);
 
-  const userInfo = new UserInfo(nameTitle, aboutPopup, userInfoContainer, api);
-  const editProfileClass = new PopupPerson(popupPerson, namePerson, aboutPerson, userInfo, api);
+const cardList = new CardList(placesList, card);
 
-  api.getInitCards()
-    .then((res) => {
-      cardList.render(res)
-    })
-    .catch((err) => {
-      console.log('Ошибка. Запрос не выполнен: ', err);
-    });
-
-  api.getUserInfo()
-    .then((res) => {
-      userInfo.setUserInfo(res)
-    })
-    .catch((err) => {
-      console.log('Ошибка. Запрос не выполнен: ', err);
-    });
-
-  newFormValidator.setEventListeners()
-  formAboutValidator.setEventListeners()
+const newPlacePopup = new PopupNewPlace(popupNewPlace, card, cardList);
 
 
-  openPopupNewPlace.addEventListener('click', () => newPlacePopup.open())
-  editProfile.addEventListener('click', () => editProfileClass.open())
+const newFormValidator = new FormValidator(formNew);
+const formAboutValidator = new FormValidator(formAbout);
+
+const userInfo = new UserInfo(nameTitle, aboutPopup, userInfoContainer, api);
+const editProfileClass = new PopupPerson(popupPerson, namePerson, aboutPerson, userInfo, api);
+
+api.getInitCards()
+  .then((res) => {
+    cardList.render(res)
+  })
+  .catch((err) => {
+    console.log('Ошибка. Запрос не выполнен: ', err);
+  });
+
+api.getUserInfo()
+  .then((res) => {
+    userInfo.setUserInfo(res)
+  })
+  .catch((err) => {
+    console.log('Ошибка. Запрос не выполнен: ', err);
+  });
+
+newFormValidator.setEventListeners()
+formAboutValidator.setEventListeners()
 
 
-}())
+openPopupNewPlace.addEventListener('click', () => newPlacePopup.open())
+editProfile.addEventListener('click', () => editProfileClass.open())
