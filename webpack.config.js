@@ -60,7 +60,9 @@ module.exports = {
       filename: '[name].[contenthash].css'
     }),
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      inject: false,
+      template: './src/index.html',
+      filename: 'index.html'
     }),
     new WebpackMd5Hash()
   ]
