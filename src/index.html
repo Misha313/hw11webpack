@@ -12,7 +12,7 @@
 <body>
   <div class="root">
     <header class="header root__section">
-      <img src="./images/logo.svg" alt="mesto logo" class="logo">
+      <img src="<%=require('./images/logo.svg')%>" alt="mesto logo" class="logo">
     </header>
     <div class="profile root__section">
       <div class="user-info">
@@ -29,7 +29,7 @@
     </div>
     <div class="popup popup-new-place">
       <div class="popup__content">
-        <img src="./images/close.svg" alt="" class="popup__close popup-new-place__close">
+        <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close popup-new-place__close">
         <h3 class="popup__title">Новое место</h3>
         <form class="popup__form" name="new">
           <div class="popup__input-wrapper">
@@ -49,7 +49,7 @@
     </div>
     <div class="popup popup-person">
       <div class="popup__content">
-        <img src="./images/close.svg" alt="" class="popup__close popup-person__close">
+        <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close popup-person__close">
         <h3 class="popup__title">Редактировать профиль</h3>
         <form class="popup__form" name="about">
           <div class="popup__input-wrapper">
@@ -69,7 +69,8 @@
     </div>
     <div class="popup-image popup" id="popup-img">
       <div class="popup-image__content" id="popup__content-img">
-        <img src="./images/close.svg" alt="" id="popup-person__close" class="popup__close popup-image__close">
+        <img src="<%=require('./images/close.svg')%>" alt="" id="popup-person__close"
+          class="popup__close popup-image__close">
         <img class="popup-image__image">
       </div>
     </div>
