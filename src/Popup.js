@@ -5,7 +5,6 @@ export class Popup {
   }
 
   open() {
-    console.log(this.namePersonField.value);
     this.popup.classList.add('popup_is-opened');
     this.setEventListenerClose()
   }
