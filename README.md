@@ -11,4 +11,4 @@
 
 
 ## Ссылка на github pages:
-(https://misha313.github.io/hw11webpack/)
+https://misha313.github.io/hw11webpack/
