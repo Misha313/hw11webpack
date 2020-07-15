@@ -34,7 +34,7 @@ const namePerson = formAbout.namePerson;
 const aboutPerson = formAbout.aboutPerson;
 
 const config = {
-  baseUrl: 'https://praktikum.tk/cohort11',
+  baseUrl: (process.envNODE_ENV === 'production' ? 'https://praktikum.tk/cohort11' : 'http://praktikum.tk/cohort11'),
   headers: {
     authorization: '6e56edd5-b9e6-415a-9bc5-cf8c6bf91db3',
     'Content-Type': 'application/json'
