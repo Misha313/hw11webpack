@@ -9,4 +9,6 @@
 - Запустить сборку production-билда - `npm run build`
 - Разместить production-билд на github pages - `npm run deploy`
 
-# [Рабочая версия](https://misha313.github.io/hw11webpack/)
+
+## Ссылка на github pages:
+(https://misha313.github.io/hw11webpack/)
