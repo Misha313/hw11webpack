@@ -1,14 +1,14 @@
 import './pages/index.css';
-import { initialCards } from './data.js';
-import { Api } from './Api.js';
-import { Card } from './Card.js';
-import { CardList } from './CardList.js';
-import { FormValidator } from './FormValidator.js';
-import { Popup } from './Popup.js';
-import { PopupImage } from './PopupImage.js';
-import { PopupNewPlace } from './PopupNewPlace.js';
-import { PopupPerson } from './PopupPerson.js';
-import { UserInfo } from './UserInfo.js';
+import { initialCards } from './modules/data.js';
+import { Api } from './modules/Api';
+import { Card } from './modules/Card.js';
+import { CardList } from './modules/CardList.js';
+import { FormValidator } from './modules/FormValidator.js';
+import { Popup } from './modules/Popup.js';
+import { PopupImage } from './modules/PopupImage.js';
+import { PopupNewPlace } from './modules/PopupNewPlace.js';
+import { PopupPerson } from './modules/PopupPerson.js';
+import { UserInfo } from './modules/UserInfo.js';
 
 
 
@@ -34,7 +34,7 @@ const namePerson = formAbout.namePerson;
 const aboutPerson = formAbout.aboutPerson;
 
 const config = {
-  baseUrl: (process.envNODE_ENV === 'production' ? 'https://praktikum.tk/cohort11' : 'http://praktikum.tk/cohort11'),
+  baseUrl: (process.env.NODE_ENV === 'production' ? 'https://praktikum.tk/cohort11' : 'http://praktikum.tk/cohort11'),
   headers: {
     authorization: '6e56edd5-b9e6-415a-9bc5-cf8c6bf91db3',
     'Content-Type': 'application/json'

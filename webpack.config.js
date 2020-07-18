@@ -2,7 +2,6 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WebpackMd5Hash = require('webpack-md5-hash');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CssnanoPlugin = require('cssnano-webpack-plugin');
 const webpack = require('webpack');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development';
@@ -32,6 +31,7 @@ module.exports = {
         },
         exclude: /node_modules/
       },
+
       {
         test: /\.css$/,
         use: [(isDev ? 'style-loader' : MiniCssExtractPlugin.loader), 'css-loader', 'postcss-loader']
@@ -53,19 +53,15 @@ module.exports = {
           {
             loader: 'image-webpack-loader',
             options: {
-              bypassOnDebug: true, // webpack@1.x
-              disable: true, // webpack@2.x and newer
+              bypassOnDebug: true,
+
             },
           },
         ],
       }
     ]
   },
-  optimization: {
-    minimizer: [
-      new CssnanoPlugin()
-    ]
-  },
+
 
   plugins: [
     new MiniCssExtractPlugin({
