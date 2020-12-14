@@ -750,7 +750,7 @@ var openPopupNewPlace = document.querySelector('.user-info__button');
 var namePerson = formAbout.namePerson;
 var aboutPerson = formAbout.aboutPerson;
 var config = {
-  baseUrl: process.envNODE_ENV === 'production' ? 'https://praktikum.tk/cohort11' : 'http://praktikum.tk/cohort11',
+  baseUrl: process.envNODE_ENV === 'production' ? 'https://nomoreparties.co/cohort11' : 'https://nomoreparties.co/cohort11',
   headers: {
     authorization: '6e56edd5-b9e6-415a-9bc5-cf8c6bf91db3',
     'Content-Type': 'application/json'
